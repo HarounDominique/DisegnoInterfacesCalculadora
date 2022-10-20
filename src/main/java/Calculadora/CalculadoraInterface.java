@@ -3,10 +3,13 @@ package Calculadora;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class CalculadoraInterface extends JFrame implements ItemListener{
+
+    boolean numberOneSelected = false;
 
     //North pane objects
 
@@ -73,6 +76,19 @@ public class CalculadoraInterface extends JFrame implements ItemListener{
             buttons3[i] = new JButton("");
             centerPane.add(buttons3[i]);
         }
+
+        //FUNCIONALIDAD DEL PRIMER ARRAY DE BOTONES
+        for(int i=0; i<buttons1.length; i++){
+            buttons1[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(!numberOneSelected){
+                        //numberText1.setText();
+                    }
+                }
+            });
+        }
+
 
         this.add(centerPane,BorderLayout.CENTER);
 
@@ -146,7 +162,7 @@ public class CalculadoraInterface extends JFrame implements ItemListener{
 
     }
 
-
+    //FUNCIONALIDAD DE LA BARRA DE OPCIONES
     @Override
     public void itemStateChanged(ItemEvent e) {
         for (JButton jButton : buttons3) {
@@ -154,7 +170,7 @@ public class CalculadoraInterface extends JFrame implements ItemListener{
 
                 buttons3[i].setText(Integer.toString(barOptions.getItemAt(barOptions.getSelectedIndex())*i));
             }
-            //jButton.setText(Integer.toString(barOptions.getItemAt(barOptions.getSelectedIndex())));
         }
     }
+
 }
