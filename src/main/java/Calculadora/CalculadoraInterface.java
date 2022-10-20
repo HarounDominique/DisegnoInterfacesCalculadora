@@ -82,8 +82,16 @@ public class CalculadoraInterface extends JFrame implements ItemListener{
             buttons1[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+
                     if(!numberOneSelected){
-                        //numberText1.setText();
+
+                        for(int i =0; i< buttons1.length; i++){
+
+                            if(buttons1[i].isSelected()){
+
+                                numberText1.setText(buttons1[i].getText());
+                            }
+                        }
                     }
                 }
             });
