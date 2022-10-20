@@ -165,6 +165,15 @@ public class CalculadoraInterface extends JFrame implements ItemListener{
         c.fill = GridBagConstraints.BOTH;
         southPane.add(sumButton, c);
 
+        //AÑADIENDO LA FUNCIONALIDAD 'SUMA' AL BOTÓN DE SUMA, TOMANDO COMO VALORES LOS CAMPOS TEXTFIELD 1 Y 2
+        sumButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                textField3.setText(String.valueOf(Integer.parseInt(textField1.getText())+Integer.parseInt(textField2.getText())));
+            }
+        });
+
         this.add(southPane, BorderLayout.SOUTH);
 
         this.setTitle("Tabla de Multiplicar");
